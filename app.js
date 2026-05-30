@@ -33,7 +33,7 @@ app.post('/add', (req, res) => {
         id: uniqueId++,
         sessionName: req.body.sessionName,
         sessionDuration: req.body.sessionDuration,
-        
+        sessionType: req.body.sessionType
     };
 
     sessions.push(newSession);

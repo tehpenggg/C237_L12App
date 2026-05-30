@@ -19,9 +19,18 @@
                 <label for="sessionName" class="form-label">Session Name</label>
                 <input type="text" class="form-control" id="sessionName" name="sessionName" placeholder="Enter session name" required>
             </div>
+
             <div class="mb-3">
                 <label for="sessionDuration" class="form-label">Duration (in minutes)</label>
                 <input type="number" class="form-control" id="sessionDuration" name="sessionDuration" placeholder="Enter duration" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="sessionType" class="form-label">Session Type</label>
+                <select class="form-select" id="sessionType" name="sessionType" required>
+                    <option value="study">Study</option>
+                    <option value="break">Break</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Add Session</button>
         </form>
