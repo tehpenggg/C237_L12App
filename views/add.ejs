@@ -17,11 +17,11 @@
         <form action="/add" method="POST">
             <div class="mb-3">
                 <label for="sessionName" class="form-label">Session Name</label>
-                <input type="text" class="form-control" id="sessionName" placeholder="Enter session name">
+                <input type="text" class="form-control" id="sessionName" name="sessionName" placeholder="Enter session name" required>
             </div>
             <div class="mb-3">
                 <label for="sessionDuration" class="form-label">Duration (in minutes)</label>
-                <input type="number" class="form-control" id="sessionDuration" placeholder="Enter duration">
+                <input type="number" class="form-control" id="sessionDuration" name="sessionDuration" placeholder="Enter duration" required>
             </div>
             <button type="submit" class="btn btn-primary">Add Session</button>
         </form>

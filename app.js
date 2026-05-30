@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
 // Declare any necessary variables or in-memory data structures here
-const sessions = [];
+let sessions = [];
 let uniqueId = 0;
 
 // TASK: Define appropriate routes below
@@ -37,17 +37,14 @@ app.post('/add', (req, res) => {
 
     sessions.push(newSession);
 
-    res.render('confirm', {
-        sessionName: req.body.sessionName,
-        sessionDuration: req.body.sessionDuration
-    });
+    res.render('confirm', {session:newSession });
 }); 
 
 app.post('/delete/:id', (req, res) => {
 
     const id = parseInt(req.params.id); 
 
-    sessions = sessions.filter(p => p.id !== id);
+    sessions = sessions.filter(s => s.id !== id);
 
     res.redirect('/');
 });
