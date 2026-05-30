@@ -11,8 +11,8 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
 // Declare any necessary variables or in-memory data structures here
-let uniqueId = 0;
 const sessions = [];
+let uniqueId = 0;
 
 // TASK: Define appropriate routes below
 // ---------------------------------------------------
@@ -43,6 +43,14 @@ app.post('/add', (req, res) => {
     });
 }); 
 
+app.post('/delete/:id', (req, res) => {
+
+    const id = parseInt(req.params.id); 
+
+    sessions = sessions.filter(p => p.id !== id);
+
+    res.redirect('/');
+});
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
