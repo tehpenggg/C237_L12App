@@ -11,7 +11,8 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 
 // Declare any necessary variables or in-memory data structures here
-
+let uniqueId = 0;
+const sessions = [];
 
 // TASK: Define appropriate routes below
 // ---------------------------------------------------
@@ -25,6 +26,23 @@ app.get('/', (req, res) => {
 app.get('/add', (req, res) => {
     res.render('add');
 });
+
+app.post('/add', (req, res) => {
+
+    const newSession = {
+        id: uniqueId++,
+        sessionName: req.body.sessionName,
+        sessionDuration: req.body.sessionDuration
+    };
+
+    sessions.push(newSession);
+
+    res.render('confirm', {
+        sessionName: req.body.sessionName,
+        sessionDuration: req.body.sessionDuration
+    });
+}); 
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
