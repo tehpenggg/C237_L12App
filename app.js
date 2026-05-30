@@ -19,7 +19,7 @@ let uniqueId = 0;
 
 //Define a route to render the index page
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index',{sessions});
 });
 
 // ---------------------------------------------------
