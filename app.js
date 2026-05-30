@@ -32,13 +32,15 @@ app.post('/add', (req, res) => {
     const newSession = {
         id: uniqueId++,
         sessionName: req.body.sessionName,
-        sessionDuration: req.body.sessionDuration
+        sessionDuration: req.body.sessionDuration,
+        
     };
 
     sessions.push(newSession);
 
     res.render('confirm', {session:newSession });
 }); 
+
 
 app.post('/delete/:id', (req, res) => {
 
