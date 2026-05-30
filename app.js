@@ -22,7 +22,9 @@ app.get('/', (req, res) => {
 });
 
 // ---------------------------------------------------
-
+app.get('/add', (req, res) => {
+    res.render('add');
+});
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
